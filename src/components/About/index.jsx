@@ -75,7 +75,7 @@ const ServicesCards = styled.div`
     flex-wrap: wrap; /* Permite que os cards quebrem para a próxima linha */
     gap: 20px; /* Espaçamento entre os cards */
     margin-top: 20px;
-    width: 100%;
+    
 `;
 
 const ServiceCard = styled.div`
@@ -87,6 +87,7 @@ const ServiceCard = styled.div`
     max-width: 330px; /* Limita o tamanho máximo dos cards */
     text-align: center;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
 
     @media (max-width: 1024px) {
         width: 45%; /* Dois cards por linha em telas médias */
@@ -95,6 +96,25 @@ const ServiceCard = styled.div`
     @media (max-width: 768px) {
         width: 100%; /* Um card por linha em telas pequenas */
     }
+
+    width: 100%;
+    border: 3px solid;
+    border-image: linear-gradient(45deg, var(--color-border-start), var(--color-border-end));
+    border-image-slice: 1;
+
+    &:hover {
+        animation: snakeBorder 2s linear infinite;
+    }
+
+    @keyframes snakeBorder {
+        0% {
+            border-image: linear-gradient(90deg, var(--color-border-start) 25%, transparent 25%) 1;
+        }
+        100% {
+            border-image: linear-gradient(90deg, transparent 25%, var(--color-border-end) 25%) 1;
+        }
+    }
+ 
 `;
 
 const ServiceTitle = styled.h3`

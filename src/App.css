@@ -4,7 +4,8 @@
     --bg-secondary-hover: #1a1a56; /* Cor escura */
     --bg-gray: #dbf4fb; /* Cinza claro */
     --color-text: #ffffff; /* Texto claro */
-    --color-border: #7FFFD4 ; /* Verde claro */
+    --color-border-start: #7FFFD4; /* Verde claro */
+    --color-border-end: #adf2db; /* Verde claro */
   }
   
   /* Modo claro */

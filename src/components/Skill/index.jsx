@@ -149,7 +149,26 @@ const SkillsBox = styled.div`
     height: 120px;
     background-color: var(--bg-secondary);
     border-radius: 10px;
+
+    width: 100%;
+    border: 3px solid;
+    border-image: linear-gradient(45deg, var(--color-border-start), var(--color-border-end));
+    border-image-slice: 1;
+
+    &:hover {
+        animation: snakeBorder 2s linear infinite;
+    }
+
+    @keyframes snakeBorder {
+        0% {
+            border-image: linear-gradient(90deg, var(--color-border-start) 25%, transparent 25%) 1;
+        }
+        100% {
+            border-image: linear-gradient(90deg, transparent 25%, var(--color-border-end) 25%) 1;
+        }
+    }
 `;
+
 
 const TextSkill = styled.p`
     font-size: 1rem;
@@ -185,6 +204,15 @@ const TechBox = styled.div`
     min-height: 120px;
     background-color: var(--bg-gray);
     border-radius: 8px;
+    box-shadow: 6px 38px 99px 13px rgba(29,218,230,0.52) inset;
+    -webkit-box-shadow: 6px 38px 99px 13px rgba(29,218,230,0.52) inset;
+    -moz-box-shadow: 6px 38px 99px 13px rgba(29,218,230,0.52) inset;
+    transition: transform 0.3s ease-in-out;
+
+    &:hover {
+        transform: rotate(-5deg);
+        box-shadow: 12px 58px 198px 13px rgba(29,218,230,0.72) inset;
+    }
 `;
 
 const TechImage = styled.img`

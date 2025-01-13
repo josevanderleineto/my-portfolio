@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import Slider from 'react-slick';
+import { FaGithub, FaGlobe } from 'react-icons/fa';
 
 const Projects = () => {
     const { t } = useTranslation();
@@ -47,10 +48,10 @@ const Projects = () => {
                         <CardText>{t('projects.projeto1.description')}</CardText>
                         <ButtonGroup>
                             <Button href="https://www.eparreiautorretrato.com/" target="_blank" rel="noopener noreferrer">
-                                {t('projects.viewSite')}
+                                <FaGlobe size={20} />
                             </Button>
                             <Button href="https://github.com/josevanderleineto/autorretrato" target="_blank" rel="noopener noreferrer">
-                                {t('projects.viewCode')}
+                                <FaGithub size={20} />
                             </Button>
                         </ButtonGroup>
                     </CardContent>
@@ -64,10 +65,10 @@ const Projects = () => {
                         <CardText>{t('projects.projeto1.description')}</CardText>
                         <ButtonGroup>
                             <Button href="https://www.eparreiautorretrato.com/" target="_blank" rel="noopener noreferrer">
-                                {t('projects.viewSite')}
+                                <FaGlobe size={20} />
                             </Button>
                             <Button href="https://github.com/josevanderleineto/autorretrato" target="_blank" rel="noopener noreferrer">
-                                {t('projects.viewCode')}
+                                <FaGithub size={20} />
                             </Button>
                         </ButtonGroup>
                     </CardContent>
@@ -211,15 +212,15 @@ const ButtonGroup = styled.div`
 
 const Button = styled.a`
     padding: 10px 20px;
-    background-color: #007bff;
-    color: #fff;
+    background-color: var(--color-border-start);
+    color: var(--bg-primary);
     text-decoration: none;
     border-radius: 5px;
     transition: background-color 0.3s ease;
     margin-bottom: 10px; /* Margem inferior nos botões no mobile */
 
     &:hover {
-        background-color: #0056b3;
+        background-color: var(--color-border-end);
     }
 
     @media (max-width: 768px) {
