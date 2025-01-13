@@ -4,6 +4,7 @@
     --bg-secondary-hover: #1a1a56; /* Cor escura */
     --bg-gray: #dbf4fb; /* Cinza claro */
     --color-text: #ffffff; /* Texto claro */
+    --color-border: #7FFFD4 ; /* Verde claro */
   }
   
   /* Modo claro */
@@ -15,7 +16,7 @@
   }
 
   html {
-    scrollbar-color: #7FFFD4 var(--bg-secondary);
+    scrollbar-color: var(--color-border) var(--bg-secondary);
 
 }
 
