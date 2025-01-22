@@ -59,15 +59,15 @@ const Projects = () => {
 
                 {/* Card para o Projeto 2 */}
                 <Card>
-                    <Image src="/img/capa_autorretrato.webp" alt="Autorretrato Lab" />
+                    <Image src="/img/cap-vazbook.svg" alt="Capa do Site do VazBooks" />
                     <CardContent>
-                        <CardTitle>{t('projects.projeto1.title')}</CardTitle>
-                        <CardText>{t('projects.projeto1.description')}</CardText>
+                        <CardTitle>{t('projects.projeto2.title')}</CardTitle>
+                        <CardText>{t('projects.projeto2.description')}</CardText>
                         <ButtonGroup>
-                            <Button href="https://www.eparreiautorretrato.com/" target="_blank" rel="noopener noreferrer">
+                            <Button href="https://www.vazcomercio.shop/" target="_blank" rel="noopener noreferrer">
                                 <FaGlobe size={20} />
                             </Button>
-                            <Button href="https://github.com/josevanderleineto/autorretrato" target="_blank" rel="noopener noreferrer">
+                            <Button href="https://github.com/josevanderleineto/vaz-bookshop" target="_blank" rel="noopener noreferrer">
                                 <FaGithub size={20} />
                             </Button>
                         </ButtonGroup>

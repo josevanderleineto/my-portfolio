@@ -89,7 +89,15 @@
     
     
     "viewSite": "View Site",
-    "viewCode": "View Code"
+    "viewCode": "View Code",
+
+    "projeto2": {
+        "title": "Vaz Bookshop",
+        "description": "Vaz Bookshop is a website for selling second-hand books, offering a wide selection of titles at affordable prices. The site was developed using HTML, CSS, and JavaScript to provide a user-friendly and efficient interface. Our goal is to make reading accessible to everyone by facilitating the search and purchase of quality used books. The reading community has praised the functionality and usability of our website."
+      
+    },
+    "viewSite2": "Ver Site",
+    "viewCode2": "Ver Código"
 
   
   },
