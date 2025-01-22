@@ -90,7 +90,7 @@
     "viewCode": "Ver Código",
     "projeto2": {
         "title": "Vaz Bookshop",
-        "description": "A Vaz Bookshop é uma página de vendas de livros usados, oferecendo uma vasta seleção de títulos a preços acessíveis. O site foi desenvolvido usando HTML, CSS e JavaScript para proporcionar uma interface amigável e eficiente para os usuários. Nosso objetivo é tornar a leitura acessível a todos, facilitando a busca e a compra de livros usados de qualidade. A comunidade de leitores tem elogiado a funcionalidade e a usabilidade do nosso site."
+        "description": "A Vaz Bookshop é uma página de vendas de livros usados, oferecendo uma vasta seleção de títulos a preços acessíveis. O site foi desenvolvido usando NextJS, React, and TailwindCSS para proporcionar uma interface amigável e eficiente para os usuários. Nosso objetivo é tornar a leitura acessível a todos, facilitando a busca e a compra de livros usados de qualidade. A comunidade de leitores tem elogiado a funcionalidade e a usabilidade do nosso site."
       
       
     },
