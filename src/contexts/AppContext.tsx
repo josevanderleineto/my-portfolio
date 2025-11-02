@@ -118,7 +118,7 @@ const translations = {
     },
     hero: {
       title: 'Vanderlei Neto',
-      subtitle: 'Desenvolvedor Front-End | JavaScript | TypeScript | React | Angular | Bootstrap | TailwindCSS',
+      subtitle: 'Desenvolvedor Full Stack | JavaScript | TypeScript | Node.js | React | Next.js | Angular | Bootstrap | TailwindCSS',
       location: 'Salvador, Bahia, Brasil',
       description: 'Desenvolvedor Web focado no Front-End, apaixonado por tecnologia. Tenho habilidades comprovadas na criação de interfaces intuitivas e responsivas que proporcionam uma experiência excepcional ao usuário.',
       contactBtn: 'Entre em Contato',
@@ -221,7 +221,7 @@ const translations = {
     },
     hero: {
       title: 'Vanderlei Neto',
-      subtitle: 'Front-End Developer | JavaScript | TypeScript | React | Angular | Bootstrap | TailwindCSS',
+      subtitle: 'Full Stack Developer | JavaScript | TypeScript | Node.js | React | Next.js | Angular | Bootstrap | TailwindCSS',
       location: 'Salvador, Bahia, Brazil',
       description: 'Front-End Web Developer passionate about technology. I specialize in building intuitive and responsive interfaces that provide an exceptional user experience.',
       contactBtn: 'Get in Touch',
