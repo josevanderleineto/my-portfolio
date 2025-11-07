@@ -3,35 +3,62 @@
 import React, { useEffect, useState } from 'react';
 import { useLanguage, useTheme } from '@/contexts/AppContext';
 
+import {
+  SiJavascript,
+  SiTypescript,
+  SiReact,
+  SiAngular,
+  SiNextdotjs,
+  SiHtml5,
+  SiCss3,
+  SiTailwindcss,
+  SiBootstrap,
+  SiNodedotjs,
+  SiExpress,
+  SiPython,
+  SiMongodb,
+  SiPostgresql,
+  SiMysql,
+  SiSqlite,
+  SiDocker,
+  SiGit,
+  SiFigma,
+  SiVscodium  // <--- ATENÇÃO: Usando SiVscodium!
+} from "react-icons/si";
+
 interface Skill {
   name: string;
   level: number;
-  icon: string;
+  icon: React.ReactNode;
   category: 'frontend' | 'backend' | 'tools';
 }
 
 const skills: Skill[] = [
-  { name: 'JavaScript', level: 90, icon: '🟨', category: 'frontend' },
-  { name: 'TypeScript', level: 85, icon: '🔷', category: 'frontend' },
-  { name: 'React', level: 88, icon: '⚛️', category: 'frontend' },
-  { name: 'Angular', level: 80, icon: '🅰️', category: 'frontend' },
-  { name: 'Next.js', level: 80, icon: '🔷', category: 'frontend' },
-  { name: 'HTML5', level: 95, icon: '🌐', category: 'frontend' },
-  { name: 'CSS3', level: 92, icon: '🎨', category: 'frontend' },
-  { name: 'TailwindCSS', level: 90, icon: '💨', category: 'frontend' },
-  { name: 'Bootstrap', level: 85, icon: '🅱️', category: 'frontend' },
-  { name: 'Node.js', level: 75, icon: '🟢', category: 'backend' },
-  { name: 'Express', level: 75, icon: '🟩', category: 'backend' },
-  { name: 'Python', level: 75, icon: '🐍', category: 'backend' },
-  { name: 'MongoDB', level: 75, icon: '🟢', category: 'backend' },
-  { name: 'PostgreSQL', level: 75, icon: '🔷', category: 'backend' },
-  { name: 'MySQL', level: 75, icon: '🔵', category: 'backend' },
-  { name: 'SQLite', level: 75, icon: '', category: 'backend' },
-   { name: 'Docker', level: 75, icon: '🟢', category: 'backend' },
-   { name: 'Git', level: 88, icon: '📝', category: 'tools' },
-  { name: 'Figma', level: 70, icon: '🎯', category: 'tools' },
-  { name: 'VS Code', level: 95, icon: '💻', category: 'tools' }
+  { name: 'JavaScript', level: 90, icon: <SiJavascript color="#f7df1e" />, category: 'frontend' },
+  { name: 'TypeScript', level: 85, icon: <SiTypescript color="#3178c6" />, category: 'frontend' },
+  { name: 'React', level: 88, icon: <SiReact color="#61dafb" />, category: 'frontend' },
+  { name: 'Angular', level: 75, icon: <SiAngular color="#dd0031" />, category: 'frontend' },
+  { name: 'Next.js', level: 80, icon: <SiNextdotjs color="#000" />, category: 'frontend' },
+  { name: 'HTML5', level: 95, icon: <SiHtml5 color="#e34f26" />, category: 'frontend' },
+  { name: 'CSS3', level: 92, icon: <SiCss3 color="#1572b6" />, category: 'frontend' },
+  { name: 'TailwindCSS', level: 90, icon: <SiTailwindcss color="#06b6d4" />, category: 'frontend' },
+  { name: 'Bootstrap', level: 85, icon: <SiBootstrap color="#7952b3" />, category: 'frontend' },
+  { name: 'Node.js', level: 90, icon: <SiNodedotjs color="#339933" />, category: 'backend' },
+  { name: 'Express', level: 85, icon: <SiExpress color="#000000" />, category: 'backend' },
+  { name: 'Python', level: 60, icon: <SiPython color="#3776ab" />, category: 'backend' },
+  { name: 'MongoDB', level: 50, icon: <SiMongodb color="#47a248" />, category: 'backend' },
+  { name: 'PostgreSQL', level: 75, icon: <SiPostgresql color="#336791" />, category: 'backend' },
+  { name: 'MySQL', level: 55, icon: <SiMysql color="#4479a1" />, category: 'backend' },
+  { name: 'SQLite', level: 70, icon: <SiSqlite color="#003b57" />, category: 'backend' },
+  { name: 'Docker', level: 75, icon: <SiDocker color="#2496ed" />, category: 'backend' },
+  { name: 'Git', level: 90, icon: <SiGit color="#f05032" />, category: 'tools' },
+  { name: 'Figma', level: 70, icon: <SiFigma color="#f24e1e" />, category: 'tools' },
+  { name: 'VS Code', level: 95, icon: <SiVscodium color="#0078d4" />, category: 'tools' }, 
+  // corrigido aqui!
 ];
+
+// ... (restante do código permanece igual)
+
 
 export default function SkillsSection() {
   const { t } = useLanguage();
@@ -44,7 +71,6 @@ export default function SkillsSection() {
       ([entry]) => {
         if (entry.isIntersecting) {
           setIsVisible(true);
-          // Animar as barras de progresso com delay
           skills.forEach((skill, index) => {
             setTimeout(() => {
               setAnimatedSkills(prev => new Set([...prev, skill.name]));
