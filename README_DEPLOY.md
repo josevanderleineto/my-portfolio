@@ -43,7 +43,7 @@ npm install
 # Construir para produção
 npm run build
 
-# Iniciar servidor de produção
+# Iniciar servidor de eprodução
 npm start
 ```
 
