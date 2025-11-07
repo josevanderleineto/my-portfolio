@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import React from 'react';
 import Image from 'next/image';
@@ -10,11 +10,11 @@ export default function ProjectsSection() {
   const { darkMode } = useTheme();
 
   return (
-    <section 
-      id="projects" 
+    <section
+      id="projects"
       className={`full-height-section ${
-        darkMode 
-          ? 'bg-gradient-to-br from-gray-800 via-gray-900 to-black' 
+        darkMode
+          ? 'bg-gradient-to-br from-gray-800 via-gray-900 to-black'
           : 'bg-gradient-to-br from-white to-gray-50'
       }`}
     >
@@ -40,7 +40,7 @@ export default function ProjectsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {t.projects.projectList.map((project, index: number) => (
+          {t.projects.projectList.map((project, index) => (
             <div
               key={index}
               className={`rounded-xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl hover:scale-105 ${
@@ -75,7 +75,7 @@ export default function ProjectsSection() {
                 </p>
 
                 <div className="flex flex-wrap gap-2 mb-4">
-                  {project.technologies.map((tech: string, techIndex: number) => (
+                  {project.technologies.map((tech, techIndex) => (
                     <span
                       key={techIndex}
                       className={`px-3 py-1 text-xs rounded-full ${
@@ -88,11 +88,19 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="flex gap-3">
-                  <button className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2">
+                  <a
+                    href="https://eparreiautorretrato.com.br/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2"
+                  >
                     <ExternalLink className="w-4 h-4" />
                     {t.projects.viewProject}
-                  </button>
-                  <button
+                  </a>
+                  <a
+                    href="https://github.com/autoretaro/autorretrato-lab.git"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className={`flex-1 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 ${
                       darkMode
                         ? 'border border-gray-600 text-gray-300 hover:bg-gray-700'
@@ -101,7 +109,7 @@ export default function ProjectsSection() {
                   >
                     <Github className="w-4 h-4" />
                     {t.projects.viewCode}
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>
@@ -111,3 +119,4 @@ export default function ProjectsSection() {
     </section>
   );
 }
+
