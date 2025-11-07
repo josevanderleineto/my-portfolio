@@ -1,6 +1,7 @@
- 'use client';
+'use client';
 
 import React, { useEffect, useState } from 'react';
+import Image from 'next/image';
 import { useLanguage, useTheme } from '@/contexts/AppContext';
 
 export default function AboutSection() {
@@ -100,10 +101,15 @@ export default function AboutSection() {
               <div className="text-center space-y-6">
                 {/* Imagem Temática */}
                 <div className="w-48 h-48 mx-auto rounded-2xl overflow-hidden">
-                  <img 
+                  <Image 
                     src="/about-developer.png" 
                     alt="Desenvolvimento Web" 
+                    width={192}
+                    height={192}
                     className="w-full h-full object-cover"
+                    priority={false}
+                    placeholder="blur"
+                    blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/xAAUEQEAAAAAAAAAAAAAAAAAAAAA/9oADAMBAAIRAxEAPwCdABmX/9k="
                   />
                 </div>
                 
