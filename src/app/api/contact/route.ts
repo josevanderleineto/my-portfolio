@@ -22,10 +22,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // AJUSTADO: transport para porta 587 e secure false
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
-      port: 465,
-      secure: true,
+      port: 587,
+      secure: false,
       auth: {
         user: process.env.GMAIL_USERNAME,
         pass: process.env.GMAIL_PASSWORD,
@@ -64,14 +65,14 @@ export async function POST(request: NextRequest) {
       `,
       text: `
         Nova mensagem do site vanderleineto.tech
-        
+
         Nome: ${name}
         E-mail: ${email}
         Assunto: ${subject}
-        
+
         Mensagem:
         ${message}
-        
+
         ---
         Esta mensagem foi enviada através do formulário de contato do site.
         Data: ${new Date().toLocaleString('pt-BR')}
@@ -84,7 +85,6 @@ export async function POST(request: NextRequest) {
       { success: true, message: 'E-mail enviado com sucesso!' },
       { status: 200 }
     );
-
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error("Erro ao enviar e-mail:", error.message);
@@ -92,7 +92,6 @@ export async function POST(request: NextRequest) {
     } else {
       console.error("Erro desconhecido:", error);
     }
-
     console.error("Variáveis de ambiente usadas:", {
       GMAIL_USERNAME: process.env.GMAIL_USERNAME ? "***" : "UNDEFINED",
       GMAIL_PASSWORD: process.env.GMAIL_PASSWORD ? "***" : "UNDEFINED",
