@@ -3,7 +3,7 @@ import { Inter } from "next/font/google"; // Usando Inter como fallback ou para 
 import "./globals.css";
 import { AppProvider } from "@/contexts/AppContext";
 
-// Se as fontes Geist estiverem causando problemas, podemos removê-las temporariamente ou usar uma abordagem diferente.
+// Se as fontes Geeist estiverem causando problemas, podemos removê-las temporariamente ou usar uma abordagem diferente.
 // Por exemplo, importá-las diretamente no CSS ou usar fontes do Google Fonts de forma mais tradicional.
 
 const inter = Inter({ subsets: ["latin"] });
