@@ -5,6 +5,13 @@ export async function POST(request: NextRequest) {
   try {
     const { name, email, subject, message } = await request.json();
 
+    if (!name || !email || !subject || !message) {
+      return NextResponse.json(
+        { success: false, message: "Preencha todos os campos." },
+        { status: 400 }
+      );
+    }
+
     const transporter = nodemailer.createTransport({
       service: "gmail",
       auth: {
@@ -13,47 +20,36 @@ export async function POST(request: NextRequest) {
       },
     });
 
-    const htmlContent = `
-      <div style="font-family: Arial, sans-serif; background-color: #f6f9fc; padding: 40px;">
-        <div style="max-width: 600px; background: #ffffff; margin: 0 auto; border-radius: 10px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-          <div style="background: #2563eb; color: white; padding: 20px; text-align: center;">
-            <h2 style="margin: 0;">📩 Novo Contato do Site</h2>
+    // 💎 HTML estilizado
+    const htmlTemplate = `
+      <div style="font-family: Arial, sans-serif; background-color: #f8f9fa; padding: 30px;">
+        <div style="max-width: 600px; background-color: #ffffff; margin: 0 auto; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+          
+          <div style="background: linear-gradient(135deg, #007BFF, #00C6FF); padding: 20px; text-align: center; color: #fff;">
+            <h2 style="margin: 0;">📩 Nova mensagem do site</h2>
           </div>
-          <div style="padding: 30px;">
-            <p style="font-size: 16px; color: #333;">Você recebeu uma nova mensagem do formulário de contato:</p>
 
-            <table style="width: 100%; margin-top: 20px; border-collapse: collapse;">
-              <tr>
-                <td style="padding: 10px; font-weight: bold; color: #555; width: 120px;">👤 Nome:</td>
-                <td style="padding: 10px; color: #111;">${name}</td>
-              </tr>
-              <tr style="background-color: #f6f9fc;">
-                <td style="padding: 10px; font-weight: bold; color: #555;">📧 E-mail:</td>
-                <td style="padding: 10px; color: #111;">${email}</td>
-              </tr>
-              <tr>
-                <td style="padding: 10px; font-weight: bold; color: #555;">📝 Assunto:</td>
-                <td style="padding: 10px; color: #111;">${subject}</td>
-              </tr>
-              <tr style="background-color: #f6f9fc;">
-                <td style="padding: 10px; font-weight: bold; color: #555;">💬 Mensagem:</td>
-                <td style="padding: 10px; color: #111; white-space: pre-wrap;">${message}</td>
-              </tr>
-            </table>
+          <div style="padding: 20px;">
+            <p><strong>Nome:</strong> ${name}</p>
+            <p><strong>E-mail:</strong> ${email}</p>
+            <p><strong>Assunto:</strong> ${subject}</p>
+            <div style="margin-top: 20px; padding: 15px; background-color: #f1f3f5; border-left: 4px solid #007BFF;">
+              <p style="margin: 0; white-space: pre-line;"><strong>Mensagem:</strong><br>${message}</p>
+            </div>
+          </div>
 
-            <p style="margin-top: 30px; font-size: 13px; color: #777;">
-              Este e-mail foi enviado automaticamente pelo formulário do seu site.
-            </p>
+          <div style="background-color: #f8f9fa; padding: 15px; text-align: center; color: #777; font-size: 13px;">
+            <p>Enviado automaticamente via formulário do Portfólio</p>
           </div>
         </div>
       </div>
     `;
 
     await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: "jose.vanderlei.nn@gmail.com",
-      subject: `📬 Contato do Portifolio: ${subject}`,
-      html: htmlContent,
+      from: `"Formulário do Site" <${process.env.EMAIL_USER}>`,
+      to: process.env.EMAIL_USER,
+      subject: `📬 Novo contato: ${subject}`,
+      html: htmlTemplate,
       replyTo: email,
     });
 
