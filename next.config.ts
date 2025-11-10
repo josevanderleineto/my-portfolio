@@ -4,9 +4,6 @@ const nextConfig = {
   trailingSlash: true,
   images: {
     unoptimized: true,
-  },
-  turbopack: {
-    root: '/Users/vanderleineto/Desktop/VANDERLEI/TI/DEV/portfolio/my-portfolio'
   }
 };
 
