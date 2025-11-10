@@ -5,6 +5,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
+  turbopack: {
+    root: '/Users/vanderleineto/Desktop/VANDERLEI/TI/DEV/portfolio/my-portfolio'
+  }
 };
 
 export default nextConfig;
