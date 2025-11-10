@@ -54,29 +54,29 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      let result: any = {};
+      let result: unknown = {};
       try {
         result = await response.json();
-      } catch (parseErr) {
+      } catch {
         const text = await response.text();
         setApiError(
           'Erro inesperado: resposta da API em formato inválido. Contate o suporte.\n\n' +
           'Status: ' + response.status + '\n' +
-          'Resposta recebida: ' + text.slice(0, 200) // mostra o início da resposta HTML, se for erro
+          'Resposta recebida: ' + text.slice(0, 200)
         );
         setSubmitStatus('error');
         setIsSubmitting(false);
         return;
       }
 
-      if (result.success) {
+      if ((result as any).success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setApiError(result.error || 'Erro inesperado ao enviar contato.');
+        setApiError((result as any).error || 'Erro inesperado ao enviar contato.');
         setSubmitStatus('error');
       }
-    } catch (error) {
+    } catch {
       setApiError('Erro ao conectar à API. Tente novamente.');
       setSubmitStatus('error');
     } finally {
@@ -216,3 +216,4 @@ export default function ContactForm() {
     </div>
   );
 }
+
