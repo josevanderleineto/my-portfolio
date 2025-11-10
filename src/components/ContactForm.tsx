@@ -1,4 +1,4 @@
-'use client';
+ 'use client';
 
 import React, { useState } from 'react';
 import { useLanguage, useTheme } from '@/contexts/AppContext';
@@ -22,6 +22,7 @@ export default function ContactForm() {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [apiError, setApiError] = useState<string | null>(null);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -35,26 +36,48 @@ export default function ContactForm() {
     e.preventDefault();
     setIsSubmitting(true);
     setSubmitStatus('idle');
+    setApiError(null);
 
     try {
-      const response = await fetch('/api/contact', {
+      const apiUrl = process.env.NEXT_PUBLIC_CONTACT_API_URL;
+
+      if (!apiUrl) {
+        setApiError('API de contato não configurada. Verifique a variável NEXT_PUBLIC_CONTACT_API_URL.');
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
+
+      const response = await fetch(apiUrl, {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
-      const result = await response.json();
+      let result: any = {};
+      try {
+        result = await response.json();
+      } catch (parseErr) {
+        const text = await response.text();
+        setApiError(
+          'Erro inesperado: resposta da API em formato inválido. Contate o suporte.\n\n' +
+          'Status: ' + response.status + '\n' +
+          'Resposta recebida: ' + text.slice(0, 200) // mostra o início da resposta HTML, se for erro
+        );
+        setSubmitStatus('error');
+        setIsSubmitting(false);
+        return;
+      }
 
       if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
+        setApiError(result.error || 'Erro inesperado ao enviar contato.');
         setSubmitStatus('error');
       }
     } catch (error) {
-      console.error('Erro ao enviar formulário:', error);
+      setApiError('Erro ao conectar à API. Tente novamente.');
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
@@ -160,9 +183,9 @@ export default function ContactForm() {
           </div>
         )}
 
-        {submitStatus === 'error' && (
-          <div className="p-4 rounded-lg bg-red-100 border border-red-300 text-red-700">
-            {t.contact.form.error}
+        {(submitStatus === 'error' && apiError) && (
+          <div className="p-4 rounded-lg bg-red-100 border border-red-300 text-red-700 whitespace-pre-line">
+            {apiError}
           </div>
         )}
 
@@ -193,4 +216,3 @@ export default function ContactForm() {
     </div>
   );
 }
-
