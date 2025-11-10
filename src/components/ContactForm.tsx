@@ -11,6 +11,11 @@ interface FormData {
   message: string;
 }
 
+interface ApiResponse {
+  success: boolean;
+  error?: string;
+}
+
 export default function ContactForm() {
   const { t } = useLanguage();
   const { darkMode } = useTheme();
@@ -54,9 +59,10 @@ export default function ContactForm() {
         body: JSON.stringify(formData),
       });
 
-      let result: unknown = {};
+      let result: ApiResponse;
+
       try {
-        result = await response.json();
+        result = (await response.json()) as ApiResponse;
       } catch {
         const text = await response.text();
         setApiError(
@@ -69,11 +75,11 @@ export default function ContactForm() {
         return;
       }
 
-      if ((result as any).success) {
+      if (result.success) {
         setSubmitStatus('success');
         setFormData({ name: '', email: '', subject: '', message: '' });
       } else {
-        setApiError((result as any).error || 'Erro inesperado ao enviar contato.');
+        setApiError(result.error || 'Erro inesperado ao enviar contato.');
         setSubmitStatus('error');
       }
     } catch {
@@ -216,4 +222,3 @@ export default function ContactForm() {
     </div>
   );
 }
-
