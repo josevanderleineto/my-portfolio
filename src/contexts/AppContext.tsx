@@ -123,7 +123,7 @@ const translations = {
     hero: {
       title: 'Vanderlei Neto',
       subtitle:
-        'Desenvolvedor Full Stack | JavaScript | TypeScript | Node.js | React | NestJS | PostgreSQL',
+        'Desenvolvedor Full Stack | JavaScript | TypeScript | Node.js | React | NextJS | PostgreSQL',
       location: 'Salvador, Bahia, Brasil',
       description:
         'Desenvolvedor Web com foco em frontend e backend. Apaixonado por tecnologia e interfaces intuitivas.',
@@ -144,8 +144,7 @@ const translations = {
         'TypeScript',
         'React',
         'Next.js',
-        'NestJS',
-        'Node.js',
+         'Node.js',
         'PostgreSQL',
         'TailwindCSS',
         'HTML5',
@@ -180,7 +179,7 @@ const translations = {
         {
           title: 'Tudo na Tela',
           description: 'Projeto fullstack: catálogo de filmes com frontend, backend, API própria e banco PostgreSQL. Solução completa e integrada.',
-          technologies: ['NestJS', 'PostgreSQL', 'TypeScript', ],
+          technologies: ['NextJS', 'PostgreSQL', 'TypeScript', ],
           image: '/capa-tudo-na-tela.svg',
           liveUrl: 'https://www.tudonatela.com/',
           codeUrl: 'https://github.com/josevanderleineto/tudo_na_tela'
@@ -244,7 +243,7 @@ const translations = {
     hero: {
       title: 'Vanderlei Neto',
       subtitle:
-        'Full Stack Developer | JavaScript | TypeScript | Node.js | React | NestJS | PostgreSQL',
+        'Full Stack Developer | JavaScript | TypeScript | Node.js | React | NextJS | PostgreSQL',
       location: 'Salvador, Bahia, Brazil',
       description:
         'Web Developer focused on building interfaces and APIs.',
@@ -264,7 +263,6 @@ const translations = {
         'TypeScript',
         'React',
         'Next.js',
-        'NestJS',
         'Node.js',
         'PostgreSQL',
         'TailwindCSS',
@@ -299,7 +297,7 @@ const translations = {
         {
           title: 'Tudo na Tela',
           description: 'Fullstack project developed for a client: a complete movie catalog system with frontend, backend, a custom API, and a PostgreSQL database',
-          technologies: ['NestJS', 'PostgreSQL', 'TypeScript'],
+          technologies: ['NextJS', 'PostgreSQL', 'TypeScript'],
           image: '/capa-tudo-na-tela.svg',
           liveUrl: 'https://www.tudonatela.com/',
           codeUrl: 'https://github.com/josevanderleineto/tudo_na_tela'
