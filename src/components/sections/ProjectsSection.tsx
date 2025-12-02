@@ -23,6 +23,7 @@ export default function ProjectsSection() {
           <div className="inline-flex items-center justify-center w-16 h-16 bg-blue-600 rounded-full mb-4">
             <Code className="w-8 h-8 text-white" />
           </div>
+
           <h2
             className={`text-3xl font-bold mb-4 ${
               darkMode ? 'text-white' : 'text-gray-900'
@@ -30,6 +31,7 @@ export default function ProjectsSection() {
           >
             {t.projects.title}
           </h2>
+
           <p
             className={`text-lg ${
               darkMode ? 'text-gray-400' : 'text-gray-600'
@@ -40,6 +42,7 @@ export default function ProjectsSection() {
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
           {t.projects.projectList.map((project, index) => (
             <div
               key={index}
@@ -88,8 +91,10 @@ export default function ProjectsSection() {
                 </div>
 
                 <div className="flex gap-3">
+
+                  {/* LINK PARA VER O PROJETO */}
                   <a
-                    href="https://eparreiautorretrato.com.br/"
+                    href={project.liveUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex-1 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors duration-300 flex items-center justify-center gap-2"
@@ -97,8 +102,10 @@ export default function ProjectsSection() {
                     <ExternalLink className="w-4 h-4" />
                     {t.projects.viewProject}
                   </a>
+
+                  {/* LINK PARA O CÓDIGO */}
                   <a
-                    href="https://github.com/autoretaro/autorretrato-lab.git"
+                    href={project.codeUrl}
                     target="_blank"
                     rel="noopener noreferrer"
                     className={`flex-1 px-4 py-2 rounded-lg transition-colors duration-300 flex items-center justify-center gap-2 ${
@@ -110,13 +117,14 @@ export default function ProjectsSection() {
                     <Github className="w-4 h-4" />
                     {t.projects.viewCode}
                   </a>
+
                 </div>
               </div>
             </div>
           ))}
+
         </div>
       </div>
     </section>
   );
 }
-
