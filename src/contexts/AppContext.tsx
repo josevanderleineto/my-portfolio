@@ -183,7 +183,16 @@ const translations = {
           image: '/capa-tudo-na-tela.svg',
           liveUrl: 'https://www.tudonatela.com/',
           codeUrl: 'https://github.com/josevanderleineto/tudo_na_tela'
+        },
+        {
+          title: 'Notação de Autor',
+          description: 'Ferramenta automatizada para geração de códigos de classificação bibliográfica, desenvolvida em Next.js com API em Express, voltada a sistemas de catalogação.',
+          technologies: ['NextJS', 'PostgreSQL', 'TypeScript'],
+          image: '/capa_cutter.svg',
+          liveUrl: 'https://notacao-de-autor.vercel.app/',
+          codeUrl: 'https://github.com/josevanderleineto/notacao_de_autor'
         }
+      
       ]
     },
     education: {
@@ -301,7 +310,16 @@ const translations = {
           image: '/capa-tudo-na-tela.svg',
           liveUrl: 'https://www.tudonatela.com/',
           codeUrl: 'https://github.com/josevanderleineto/tudo_na_tela'
+        },
+        {
+          title: 'Notação de Autor',
+          description: 'Automated tool for generating bibliographic classification codes, built with Next.js and an Express API, designed for cataloging systems.',
+          technologies: ['NextJS', 'PostgreSQL', 'TypeScript'],
+          image: '/capa_cutter.svg',
+          liveUrl: 'https://notacao-de-autor.vercel.app/',
+          codeUrl: 'https://github.com/josevanderleineto/notacao_de_autor'
         }
+      
       ]
     },
     education: {
