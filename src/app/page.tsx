@@ -1,4 +1,4 @@
- 'use client';
+'use client';
 
 import React from 'react';
 import { useTheme } from '@/contexts/AppContext';
@@ -10,7 +10,7 @@ import ProjectsSection from '@/components/sections/ProjectsSection';
 import EducationSection from '@/components/sections/EducationSection';
 import ContactSection from '@/components/sections/ContactSection';
 import AboutSection from '@/components/sections/AboutSection';
-import SkillsSection from '@/components/sections/SkillsSection'; // <- AGORA CORRETO!
+import SkillsSection from '@/components/sections/SkillsSection';
 
 export default function HomePage() {
   const { darkMode } = useTheme();

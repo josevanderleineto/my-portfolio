@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap:  https://www.vanderleineto.online/sitemap.xml
+
+# Bloquear arquivos administrativos
+Disallow: /api/
+Disallow: /_next/
+Disallow: /admin/
