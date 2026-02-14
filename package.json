@@ -6,7 +6,12 @@
     "dev": "next dev --turbopack",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "docker:build": "docker build -t vanderlei-portfolio .",
+    "docker:run": "docker run -p 3000:3000 vanderlei-portfolio",
+    "docker:dev": "docker-compose --profile dev up portfolio-dev",
+    "docker:prod": "docker-compose up portfolio",
+    "docker:stop": "docker-compose down"
   },
   "dependencies": {
     "@sendgrid/mail": "^8.1.6",
